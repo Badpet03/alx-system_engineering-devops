@@ -42,7 +42,6 @@ frontend  emenike-frontend-http
 frontend emenike-frontend-https
 	bind *:443 ssl crt /etc/haproxy/certs/www.emenike.tech.pem
 	http-request set-header X-Forwarded-Proto https
-	http-request redirect scheme https code 301 unless { ssl_fc }
 	default_backend emenike-backend
 
 backend emenike-backend
